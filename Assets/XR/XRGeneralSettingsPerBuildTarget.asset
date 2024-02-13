@@ -15,6 +15,7 @@ MonoBehaviour:
   m_LoaderManagerInstance: {fileID: 5471830491661461482}
   m_InitManagerOnStart: 1
 --- !u!114 &-1588091576488035979
+--- !u!114 &-1766072196025953608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,12 +26,14 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4c3631f5e58749a59194e0cf6baf6d5, type: 3}
   m_Name: Standalone Providers
+  m_Name: Android Providers
   m_EditorClassIdentifier: 
   m_RequiresSettingsUpdate: 0
   m_AutomaticLoading: 0
   m_AutomaticRunning: 0
   m_Loaders:
   - {fileID: 11400000, guid: 05d8164b010b6f6438285251b1659beb, type: 2}
+  m_Loaders: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,6 +51,9 @@ MonoBehaviour:
   - {fileID: 6562082045100476246}
   - {fileID: -1862944138794568799}
 --- !u!114 &5471830491661461482
+  - {fileID: 3615497429322512683}
+  - {fileID: 609168979079584526}
+--- !u!114 &609168979079584526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,6 +70,12 @@ MonoBehaviour:
   m_AutomaticRunning: 0
   m_Loaders: []
 --- !u!114 &6562082045100476246
+  m_Script: {fileID: 11500000, guid: d236b7d11115f2143951f1e14045df39, type: 3}
+  m_Name: Android Settings
+  m_EditorClassIdentifier: 
+  m_LoaderManagerInstance: {fileID: -1766072196025953608}
+  m_InitManagerOnStart: 1
+--- !u!114 &3615497429322512683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,3 +89,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LoaderManagerInstance: {fileID: -1588091576488035979}
   m_InitManagerOnStart: 1
+  m_LoaderManagerInstance: {fileID: 6460500384440783683}
+  m_InitManagerOnStart: 1
+--- !u!114 &6460500384440783683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4c3631f5e58749a59194e0cf6baf6d5, type: 3}
+  m_Name: Standalone Providers
+  m_EditorClassIdentifier: 
+  m_RequiresSettingsUpdate: 0
+  m_AutomaticLoading: 0
+  m_AutomaticRunning: 0
+  m_Loaders:
+  - {fileID: 11400000, guid: dd4fc68d473a9324bbdef6cad4c60f6c, type: 2}
