@@ -1,62 +1,71 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class VRButtonMovement : MonoBehaviour
+public class VRButtonActions : MonoBehaviour
 {
     public float movementSpeed = 1.0f;
-
     private Transform cameraTransform;
 
-    Vector3 forward;
-    Vector3 right;
     private void Start()
     {
-        cameraTransform = Camera.main.transform;
+        cameraTransform = Camera.main.transform; 
     }
 
     private void Update()
     {
-        forward = cameraTransform.forward;
-        right = cameraTransform.right;
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
 
-
+        
         forward.y = 0f;
         right.y = 0f;
         forward.Normalize();
         right.Normalize();
-        ClickForward();
-        ClickLeft();
-        ClicRight();
 
-
-        //if (Input.GetButtonDown("Forward"))
-        //{
-        //    transform.position += forward * movementSpeed * Time.deltaTime;
-        //}
-        //else if (Input.GetButtonDown("Backward"))
-        //{
-        //    transform.position -= forward * movementSpeed * Time.deltaTime;
-        //}
-        //else if (Input.GetButtonDown("Left"))
-        //{
-        //    transform.position -= right * movementSpeed * Time.deltaTime;
-        //}
-        //else if (Input.GetButtonDown("Right"))
-        //{
-        //    transform.position += right * movementSpeed * Time.deltaTime;
-        //}
+ 
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickUp))
+        {
+            MoveForward();
+        }
+        else if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickDown))
+        {
+            MoveBackward();
+        }
+        else if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickLeft))
+        {
+            MoveLeft();
+        }
+        else if (OVRInput.GetDown(OVRInput.Button.PrimaryThumbstickRight))
+        {
+            MoveRight();
+        }
     }
 
-    public void ClickForward()
+    private void MoveForward()
     {
-        transform.position += forward * movementSpeed * Time.deltaTime;
-    }
-    public void ClickLeft()
-    {
-        transform.position -= right * movementSpeed * Time.deltaTime;
-    }
-    public void ClicRight()
-    {
-        transform.position += right * movementSpeed * Time.deltaTime;
+        // Implement your custom action for moving forward
+        Debug.Log("Moving Forward");
+        transform.position += cameraTransform.forward * movementSpeed * Time.deltaTime;
     }
 
+    private void MoveBackward()
+    {
+        // Implement your custom action for moving backward
+        Debug.Log("Moving Backward");
+        transform.position -= cameraTransform.forward * movementSpeed * Time.deltaTime;
+    }
+
+    private void MoveLeft()
+    {
+        // Implement your custom action for moving left
+        Debug.Log("Moving Left");
+        transform.position -= cameraTransform.right * movementSpeed * Time.deltaTime;
+    }
+
+    private void MoveRight()
+    {
+        // Implement your custom action for moving right
+        Debug.Log("Moving Right");
+        transform.position += cameraTransform.right * movementSpeed * Time.deltaTime;
+    }
 }

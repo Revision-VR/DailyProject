@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Right
+  m_text: 'Forward
 
 '
   m_isRightToLeft: 0
@@ -567,6 +567,8 @@ GameObject:
   - component: {fileID: 187477500}
   - component: {fileID: 187477499}
   - component: {fileID: 187477498}
+  - component: {fileID: 187477502}
+  - component: {fileID: 187477503}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -661,8 +663,116 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2040159824}
+  - {fileID: 933610104}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &187477502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187477497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3979d12efcdcd7642b2015b7bbade51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  rotationSpeed: 100
+--- !u!114 &187477503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187477497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 187477502}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: OnForwardButtonDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 187477502}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: OnLeftButtonDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 187477502}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: OnRightButtonDown
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 187477502}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: OnForwardButtonUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 187477502}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: OnLeftButtonUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 187477502}
+          m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+          m_MethodName: OnRightButtonUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &211362920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1423,6 +1533,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5919106134362994299, guid: 5fca3702cdf1a214a94e69dcfa704e17, type: 3}
       insertIndex: -1
       addedObject: {fileID: 587440753}
+    - targetCorrespondingSourceObject: {fileID: 5919106134362994299, guid: 5fca3702cdf1a214a94e69dcfa704e17, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 587440754}
   m_SourcePrefab: {fileID: 100100000, guid: 5fca3702cdf1a214a94e69dcfa704e17, type: 3}
 --- !u!4 &587440748 stripped
 Transform:
@@ -1476,34 +1589,10 @@ MonoBehaviour:
       m_Calls: []
   _whenSelect:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1807149299}
-        m_TargetAssemblyTypeName: VRButtonMovement, Assembly-CSharp
-        m_MethodName: ClicRight
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _whenUnselect:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
-        m_MethodName: PlayAudio
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _whenInteractorViewAdded:
     m_PersistentCalls:
       m_Calls: []
@@ -1516,6 +1605,19 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &587440754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587440752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e13d6c718f8458e428f16e816f251430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 187477502}
 --- !u!1001 &675682690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2949,8 +3051,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933610103}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4718187, y: 0.84549797, z: 0.33163458}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -11.508181, y: -1.704502, z: -13.018366}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2958,7 +3060,7 @@ Transform:
   - {fileID: 587440748}
   - {fileID: 1723199854}
   - {fileID: 1164104621}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 187477501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1025701865
 PrefabInstance:
@@ -3536,7 +3638,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.099, y: 1.0495, z: 1.0495}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1723199856}
@@ -4167,6 +4269,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5919106134362994299, guid: 5fca3702cdf1a214a94e69dcfa704e17, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1291177010}
+    - targetCorrespondingSourceObject: {fileID: 5919106134362994299, guid: 5fca3702cdf1a214a94e69dcfa704e17, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2024991928}
   m_SourcePrefab: {fileID: 100100000, guid: 5fca3702cdf1a214a94e69dcfa704e17, type: 3}
 --- !u!1 &1291177006 stripped
 GameObject:
@@ -4215,34 +4320,10 @@ MonoBehaviour:
       m_Calls: []
   _whenSelect:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1807149299}
-        m_TargetAssemblyTypeName: VRButtonMovement, Assembly-CSharp
-        m_MethodName: ClickLeft
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _whenUnselect:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
-        m_MethodName: PlayAudio
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _whenInteractorViewAdded:
     m_PersistentCalls:
       m_Calls: []
@@ -5027,6 +5108,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5919106134362994299, guid: 5fca3702cdf1a214a94e69dcfa704e17, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1723199859}
+    - targetCorrespondingSourceObject: {fileID: 5919106134362994299, guid: 5fca3702cdf1a214a94e69dcfa704e17, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1723199860}
   m_SourcePrefab: {fileID: 100100000, guid: 5fca3702cdf1a214a94e69dcfa704e17, type: 3}
 --- !u!4 &1723199854 stripped
 Transform:
@@ -5080,34 +5164,10 @@ MonoBehaviour:
       m_Calls: []
   _whenSelect:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1807149299}
-        m_TargetAssemblyTypeName: VRButtonMovement, Assembly-CSharp
-        m_MethodName: ClickForward
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _whenUnselect:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
-        m_MethodName: PlayAudio
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _whenInteractorViewAdded:
     m_PersistentCalls:
       m_Calls: []
@@ -5120,6 +5180,19 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1723199860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723199858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0919d988953663845b1e831d805561ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 187477502}
 --- !u!1 &1744208384
 GameObject:
   m_ObjectHideFlags: 0
@@ -5285,7 +5358,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1807149300}
-  - component: {fileID: 1807149299}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -5293,19 +5365,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1807149299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1807149298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d52ce18ea9ee3745956f465fcaf39fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 1
 --- !u!4 &1807149300
 Transform:
   m_ObjectHideFlags: 0
@@ -5728,6 +5787,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5919106134362994298, guid: 5fca3702cdf1a214a94e69dcfa704e17, type: 3}
   m_PrefabInstance: {fileID: 1291177005}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2024991928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291177006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1384d69a54daa4387c6687c6ae18ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 187477502}
 --- !u!4 &2040159824 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5550776016039436608, guid: f39a9d103c4129b42a53567f6cd8356a, type: 3}
@@ -5911,4 +5983,3 @@ SceneRoots:
   - {fileID: 1444918408}
   - {fileID: 1803781111}
   - {fileID: 1807149300}
-  - {fileID: 933610104}
