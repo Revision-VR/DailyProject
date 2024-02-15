@@ -1,8 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
     public Animator FizikaAnimator;
+
+    private int Count = 0;
+    private bool isAnimationPlaying = false;
     void Start()
     {
 
@@ -10,24 +14,60 @@ public class AnimationController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.C)) 
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            Left();
+            LeftControler(Count);
+            Count++;
         }
-        else if (Input.GetKeyDown(KeyCode.V))
+        else if (!isAnimationPlaying && Input.GetKeyDown(KeyCode.S))
         {
-            Right();
+            RightControler(Count);
+            Count++;
         }
+
     }
 
-    public void Left()
+    public void LeftControler(int a)
     {
-        FizikaAnimator.SetInteger("Fizika", 1);
+
+        if (a % 2 == 0)
+        {
+            FizikaAnimator.SetInteger("Fizika", 3);
+            StartCoroutine(kutish());
+        }
+        else if (a % 2 != 0)
+        {
+            FizikaAnimator.SetInteger("Fizika", 2);
+            StartCoroutine(kutish());
+        }
+
+    }
+    public void RightControler(int a)
+    {
+        if (a % 2 == 0)
+        {
+            FizikaAnimator.SetInteger("Fizika", 1);
+            //StartCoroutine(kutish());
+        }
+        else if (a % 2 != 0)
+        {
+            FizikaAnimator.SetInteger("Fizika", 4);
+            //StartCoroutine(kutish());
+        }
+
+        isAnimationPlaying = true;
+
+        StartCoroutine(kutish());
     }
 
-    public void Right()
+    IEnumerator kutish()
     {
-        FizikaAnimator.SetInteger("Fizika", 2);
-        FizikaAnimator.SetInteger("Fizika", 3);
+        yield return new WaitForSeconds(1);
+        FizikaAnimator.SetInteger("Fizika", 5);
+        isAnimationPlaying = false;
     }
+
+
+
+
 }
